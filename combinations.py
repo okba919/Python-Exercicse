@@ -1,6 +1,13 @@
-def comb(n, k):
-    return 1 if k == 0 or k == n else n * (n-1) // 2  # مثال trivial
+def fact(n):
+    result = 1
+    for i in range(1, n+1):
+        result *= i
+    return result
 
-n = 5
-k = 2
-print("Number of combinations:", comb(n, k))
+def comb(n, k):
+    return fact(n) // (fact(k) * fact(n - k))
+
+n = int(input("Enter total number of elements n: "))
+k = int(input("Enter number of elements to choose k: "))
+
+print("Number of ways to choose", k, "from", n, "is:", comb(n, k))
